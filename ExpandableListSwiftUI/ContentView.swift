@@ -8,9 +8,11 @@
 
 import SwiftUI
 
+let store = PlacesList.Store()
+
 struct ContentView: View {
     var body: some View {
-        PlacesList(places: defaultPlaces())
+        PlacesList().environmentObject(store)
     }
 }
 

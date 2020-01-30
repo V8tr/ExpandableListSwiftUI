@@ -11,35 +11,45 @@ import SwiftUI
 // Search for places https://www.hackingwithswift.com/example-code/location/how-to-look-up-a-location-with-mklocalsearchrequest
 // Place model https://developer.apple.com/documentation/mapkit/mkmapitem
 
+//let store =
+
 struct PlacesList: View {
-    let places: [Place]
+    @EnvironmentObject var store: Store
     
     var body: some View {
-        List(places, id: \.self) { place in
-            VStack {
-                Text(place.name)
-                Text(place.location)
-            }
+        List(store.state.places, id: \.self) { place in
+            PlaceView(place: place)
+                .onTapGesture { self.store.send(.select(place)) }
+                .border(Color.black)
         }
+    }
+}
+
+struct PlaceView: View {
+    let place: Place
+    
+    var content: some View {
+        VStack {
+            Text(place.name)
+                .border(Color.green)
+            Text(place.location)
+                .border(Color.yellow)
+        }
+    }
+    
+    var body: some View {
+        HStack {
+            content
+            Spacer()
+        }
+        .contentShape(Rectangle())
+        .frame(maxWidth: .infinity)
+        .border(Color.blue)
     }
 }
 
 struct PlacesList_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesList(places: defaultPlaces())
+        PlacesList().environmentObject(PlacesList.Store())
     }
-}
-
-struct ExpandableItem<Item>: Identifiable where Item: Identifiable {
-    let item: Item
-    var id: Item.ID { item.id }
-}
-
-struct Place: Hashable {
-    let name: String
-    let location: String
-}
-
-func defaultPlaces() -> [Place] {
-    return (0...100).map { Place(name: "P\($0)", location: "\($0)\n\($0)\n\($0)\n\($0)\n\($0)") }
 }
