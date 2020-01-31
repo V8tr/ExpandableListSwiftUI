@@ -11,7 +11,11 @@ import SwiftUI
 // Search for places https://www.hackingwithswift.com/example-code/location/how-to-look-up-a-location-with-mklocalsearchrequest
 // Place model https://developer.apple.com/documentation/mapkit/mkmapitem
 
-//let store =
+struct ListRowModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content.padding(EdgeInsets(top: 20, leading: 15, bottom: 20, trailing: 15))
+    }
+}
 
 struct PlacesListView: View {
     @EnvironmentObject var store: Store
@@ -21,11 +25,14 @@ struct PlacesListView: View {
     }
     
     var body: some View {
-        List(places) { place in
-            PlaceView(place: place)
-                .background(Color.yellow.opacity(0.3))
+        ScrollView {
+            ForEach(places) { place in
+                PlaceView(place: place)
+                .modifier(ListRowModifier())
+                .border(Color.black.opacity(0.3))
                 .onTapGesture { self.store.send(.select(place.item)) }
                 .animation(.linear(duration: 0.3))
+            }
         }
     }
 }

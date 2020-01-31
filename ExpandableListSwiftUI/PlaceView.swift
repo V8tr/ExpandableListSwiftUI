@@ -21,7 +21,6 @@ struct PlaceView: View {
     }
     
     var content: some View {
-//        place.isExpanded ? expanded.eraseToAnyView() : collapsed.eraseToAnyView()
         VStack {
             Text(place.name)
             
@@ -29,16 +28,5 @@ struct PlaceView: View {
                 Text(place.location)
             }
         }
-    }
-    
-    var expanded: some View {
-        VStack {
-            Text(place.name)
-            Text(place.location)
-        }
-    }
-    
-    var collapsed: some View {
-        Text(place.name)
     }
 }
