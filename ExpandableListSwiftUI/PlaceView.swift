@@ -10,9 +10,7 @@ import SwiftUI
 
 struct PlaceView: View {
     let place: ExpandableItem<Place>
-    
-    static var count = 0
-        
+            
     var body: some View {
         HStack {
             content

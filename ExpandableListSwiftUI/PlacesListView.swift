@@ -29,6 +29,7 @@ struct PlacesListView: View {
     
     var body: some View {
         scrollForEach
+//        list
     }
     
     var list: some View {
