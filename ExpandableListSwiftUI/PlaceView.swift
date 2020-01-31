@@ -21,17 +21,24 @@ struct PlaceView: View {
     }
     
     var content: some View {
-        place.isExpanded ? expanded.eraseToAnyView() : collapsed.eraseToAnyView()
+//        place.isExpanded ? expanded.eraseToAnyView() : collapsed.eraseToAnyView()
+        VStack {
+            Text(place.name)
+            
+            if place.isExpanded {
+                Text(place.location)
+            }
+        }
     }
     
     var expanded: some View {
         VStack {
-            Text(place.item.name)
-            Text(place.item.location)
+            Text(place.name)
+            Text(place.location)
         }
     }
     
     var collapsed: some View {
-        Text(place.item.name)
+        Text(place.name)
     }
 }

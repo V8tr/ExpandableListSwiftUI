@@ -25,8 +25,8 @@ struct PlacesListView: View {
             PlaceView(place: place)
                 .background(Color.yellow.opacity(0.3))
                 .onTapGesture { self.store.send(.select(place.item)) }
-                .animation(.spring())
-        }.animation(.spring())
+                .animation(.linear(duration: 0.3))
+        }
     }
 }
 
