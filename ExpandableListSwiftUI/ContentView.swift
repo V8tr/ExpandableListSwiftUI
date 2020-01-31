@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-let store = PlacesList.Store()
+let store = Store()
 
 struct ContentView: View {
     var body: some View {
-        PlacesList().environmentObject(store)
+        PlacesListView().environmentObject(store)
     }
 }
 

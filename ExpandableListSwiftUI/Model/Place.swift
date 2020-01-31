@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct Place: Equatable, Hashable {
+struct Place: Identifiable, Equatable, Hashable {
     let id: Int
     let name: String
     let location: String
     
     static func samples() -> [Place] {
         return (0...100).map { Place(id: $0, name: "P\($0)", location: "\($0)\n\($0)\n\($0)\n\($0)\n\($0)") }
+    }
+    
+    static func single() -> [Place] {
+        return [Place(id: 0, name: "P0", location: "L0\nL0\nL0\nL0\nL0\nL0\nL0\nL0\nL0\n")]
     }
 }
