@@ -13,7 +13,10 @@ import SwiftUI
 
 struct ListRowModifier: ViewModifier {
     func body(content: Content) -> some View {
-        content.padding(EdgeInsets(top: 20, leading: 15, bottom: 20, trailing: 15))
+        Group {
+            content.padding()
+            Divider()
+        }
     }
 }
 
@@ -25,14 +28,13 @@ struct PlacesListView: View {
     }
     
     var body: some View {
-        forEach
+        forEach.onAppear { self.store.send(.fetch) }
     }
     
     var list: some View {
         List(places) { place in
             PlaceView(place: place)
                 .modifier(ListRowModifier())
-                .border(Color.black.opacity(0.3))
                 .onTapGesture { self.store.send(.select(place.item)) }
                 .animation(.linear(duration: 0.3))
         }
@@ -43,7 +45,6 @@ struct PlacesListView: View {
             ForEach(places) { place in
                 PlaceView(place: place)
                     .modifier(ListRowModifier())
-                    .border(Color.black.opacity(0.3))
                     .onTapGesture { self.store.send(.select(place.item)) }
                     .animation(.linear(duration: 0.3))
             }

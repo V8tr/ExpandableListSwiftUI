@@ -21,11 +21,11 @@ struct PlaceView: View {
     }
     
     var content: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(place.name)
             
             if place.isExpanded {
-                Text(place.location)
+                Text(place.location).transition(.identity)
             }
         }
     }
