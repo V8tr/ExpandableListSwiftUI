@@ -25,13 +25,27 @@ struct PlacesListView: View {
     }
     
     var body: some View {
-        ScrollView {
-            ForEach(places) { place in
-                PlaceView(place: place)
+        forEach
+    }
+    
+    var list: some View {
+        List(places) { place in
+            PlaceView(place: place)
                 .modifier(ListRowModifier())
                 .border(Color.black.opacity(0.3))
                 .onTapGesture { self.store.send(.select(place.item)) }
                 .animation(.linear(duration: 0.3))
+        }
+    }
+    
+    var forEach: some View {
+        ScrollView {
+            ForEach(places) { place in
+                PlaceView(place: place)
+                    .modifier(ListRowModifier())
+                    .border(Color.black.opacity(0.3))
+                    .onTapGesture { self.store.send(.select(place.item)) }
+                    .animation(.linear(duration: 0.3))
             }
         }
     }
