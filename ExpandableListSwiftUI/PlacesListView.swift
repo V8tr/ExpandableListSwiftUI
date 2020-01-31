@@ -28,7 +28,7 @@ struct PlacesListView: View {
     }
     
     var body: some View {
-        forEach.onAppear { self.store.send(.fetch) }
+        scrollForEach
     }
     
     var list: some View {
@@ -40,7 +40,7 @@ struct PlacesListView: View {
         }
     }
     
-    var forEach: some View {
+    var scrollForEach: some View {
         ScrollView {
             ForEach(places) { place in
                 PlaceView(place: place)

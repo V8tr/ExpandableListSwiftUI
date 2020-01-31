@@ -12,7 +12,7 @@ import Combine
 // Mecid's Recipes app https://github.com/mecid/swiftui-recipes-app
 
 struct State: Equatable {
-    var places: [Place] = []
+    var places: [Place] = Place.samples()
     var selection = Set<Place>()
 }
 
@@ -27,7 +27,7 @@ class Store: ObservableObject {
     func send(_ action: Action) {
         switch action {
         case .fetch:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.async {
                 self.state.places = Place.samples()
             }
             

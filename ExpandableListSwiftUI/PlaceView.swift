@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PlaceView: View {
     let place: ExpandableItem<Place>
+    
+    static var count = 0
         
     var body: some View {
         HStack {
@@ -18,6 +20,7 @@ struct PlaceView: View {
         }
         .contentShape(Rectangle())
         .frame(maxWidth: .infinity)
+        .background(Color.yellow)
     }
     
     var content: some View {

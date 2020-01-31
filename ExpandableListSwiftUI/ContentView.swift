@@ -12,7 +12,8 @@ let store = Store()
 
 struct ContentView: View {
     var body: some View {
-        PlacesListView().environmentObject(store)
+        PlacesListView()
+            .environmentObject(store)
     }
 }
 

@@ -49,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		800D998C23E4803F006BD88B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				88E2C6F723E228F900EF5304 /* AppDelegate.swift */,
+				88E2C6F923E228F900EF5304 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		8099E3EE23E4487F00CCE2D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +87,7 @@
 		88E2C6F623E228F900EF5304 /* ExpandableListSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				88E2C6F723E228F900EF5304 /* AppDelegate.swift */,
-				88E2C6F923E228F900EF5304 /* SceneDelegate.swift */,
+				800D998C23E4803F006BD88B /* App */,
 				88E2C6FB23E228F900EF5304 /* ContentView.swift */,
 				88E2C70D23E2307E00EF5304 /* PlacesListView.swift */,
 				8099E3EF23E448C500CCE2D1 /* PlaceView.swift */,
