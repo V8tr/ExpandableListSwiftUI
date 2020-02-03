@@ -14,47 +14,55 @@ import SwiftUI
 struct ListRowModifier: ViewModifier {
     func body(content: Content) -> some View {
         Group {
-            content.padding()
+            content
             Divider()
-        }
+        }.offset(x: 20)
     }
 }
 
 struct PlacesListView: View {
-    @EnvironmentObject var store: Store
+    @State private var selection: Set<Place> = []
+    let places: [Place]
     
-    var places: [ExpandableItem<Place>] {
-        store.state.places.map { ExpandableItem(item: $0, isExpanded: store.state.selection.contains($0)) }
+    private var items: [ExpandableItem<Place>] {
+        places.map { ExpandableItem(item: $0, isExpanded: selection.contains($0)) }
     }
     
     var body: some View {
         scrollForEach
-//        list
+//            list
     }
     
     var list: some View {
-        List(places) { place in
+        List(items) { place in
             PlaceView(place: place)
-                .modifier(ListRowModifier())
-                .onTapGesture { self.store.send(.select(place.item)) }
+                .onTapGesture { self.selectDeselect(place.item) }
                 .animation(.linear(duration: 0.3))
         }
     }
     
     var scrollForEach: some View {
         ScrollView {
-            ForEach(places) { place in
+            ForEach(items) { place in
                 PlaceView(place: place)
                     .modifier(ListRowModifier())
-                    .onTapGesture { self.store.send(.select(place.item)) }
+                    .onTapGesture { self.selectDeselect(place.item) }
                     .animation(.linear(duration: 0.3))
             }
+        }
+    }
+    
+    private func selectDeselect(_ place: Place) {
+        if selection.contains(place) {
+            selection.remove(place)
+        } else {
+            selection.insert(place)
         }
     }
 }
 
 struct PlacesList_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesListView().environmentObject(Store())
+        PlacesListView(places: Place.samples())
     }
 }

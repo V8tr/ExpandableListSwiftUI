@@ -18,15 +18,20 @@ struct PlaceView: View {
         }
         .contentShape(Rectangle())
         .frame(maxWidth: .infinity)
-        .background(Color.yellow)
     }
     
     var content: some View {
         VStack(alignment: .leading) {
-            Text(place.name)
+            Text(place.name).font(.headline)
             
             if place.isExpanded {
-                Text(place.location).transition(.identity)
+                VStack(alignment: .leading) {
+                    Text(place.country)
+                    Text(place.city)
+                    Text(place.street)
+                    Text(place.zip)
+                    Text(place.phoneNumber)
+                }
             }
         }
     }
