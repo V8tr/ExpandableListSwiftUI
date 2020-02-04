@@ -13,14 +13,13 @@ struct PlaceView: View {
             
     var body: some View {
         HStack {
-            content
+            Text(place.name)
             Spacer()
         }
         .contentShape(Rectangle())
-        .frame(maxWidth: .infinity)
     }
     
-    var content: some View {
+    private var content: some View {
         VStack(alignment: .leading) {
             Text(place.name).font(.headline)
             

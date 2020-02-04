@@ -11,7 +11,8 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        PlacesListView(places: Place.samples())
+//        PlacesListView(places: Place.samples())
+        Step9.PlacesListView(places: Place.samples())
     }
 }
 

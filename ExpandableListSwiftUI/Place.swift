@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Place: Identifiable, Equatable, Hashable {
+struct Place: Identifiable, Hashable {
     let id: Int
     let name: String
     let country: String
@@ -17,7 +17,9 @@ struct Place: Identifiable, Equatable, Hashable {
     let zip: String
     let phoneNumber: String
     
-    static func samples() -> [Place] { (0...100).map(Place.fixture) }
+    static func samples() -> [Place] { (0..<100).map(Place.fixture) }
+    
+    static func threeSamples() -> [Place] { (0..<3).map(Place.fixture) }
     
     private static func fixture(_ id: Int) -> Place {
         Place(
