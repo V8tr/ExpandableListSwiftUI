@@ -2,11 +2,13 @@
 //  Steps.swift
 //  ExpandableListSwiftUI
 //
-//  Created by Vadym Bulavin on 2/4/20.
+//  Created by Vadim Bulavin on 2/4/20.
 //  Copyright © 2020 Vadim Bulavin. All rights reserved.
 //
 
 import SwiftUI
+
+// Step-by-step code samples from my tutorial
 
 enum Step1 {
     struct PlacesListView: View {

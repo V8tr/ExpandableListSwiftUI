@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8043612C23E33ED800967795 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8043612B23E33ED700967795 /* Place.swift */; };
 		8099E3F023E448C500CCE2D1 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8099E3EF23E448C500CCE2D1 /* PlaceView.swift */; };
-		8099E3F423E44B4800CCE2D1 /* ExpandableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8099E3F323E44B4800CCE2D1 /* ExpandableItem.swift */; };
 		80E3E33323E965E000CFFCA5 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E3E33223E965E000CFFCA5 /* Steps.swift */; };
 		88E2C6F823E228F900EF5304 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C6F723E228F900EF5304 /* AppDelegate.swift */; };
 		88E2C6FA23E228F900EF5304 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C6F923E228F900EF5304 /* SceneDelegate.swift */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		8043612B23E33ED700967795 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		8099E3EF23E448C500CCE2D1 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
-		8099E3F323E44B4800CCE2D1 /* ExpandableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableItem.swift; sourceTree = "<group>"; };
 		80E3E33223E965E000CFFCA5 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		88E2C6F423E228F900EF5304 /* ExpandableListSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableListSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E2C6F723E228F900EF5304 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +54,16 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		80696BF523E9C41C00B6BDF9 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				88E2C6FD23E228FD00EF5304 /* Assets.xcassets */,
+				88E2C70223E228FD00EF5304 /* LaunchScreen.storyboard */,
+				88E2C70523E228FD00EF5304 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		88E2C6EB23E228F900EF5304 = {
 			isa = PBXGroup;
 			children = (
@@ -77,15 +85,12 @@
 			children = (
 				800D998C23E4803F006BD88B /* App */,
 				88E2C6FB23E228F900EF5304 /* ContentView.swift */,
+				8043612B23E33ED700967795 /* Place.swift */,
 				88E2C70D23E2307E00EF5304 /* PlacesListView.swift */,
 				8099E3EF23E448C500CCE2D1 /* PlaceView.swift */,
-				8099E3F323E44B4800CCE2D1 /* ExpandableItem.swift */,
-				8043612B23E33ED700967795 /* Place.swift */,
-				80E3E33223E965E000CFFCA5 /* Steps.swift */,
-				88E2C6FD23E228FD00EF5304 /* Assets.xcassets */,
-				88E2C70223E228FD00EF5304 /* LaunchScreen.storyboard */,
-				88E2C70523E228FD00EF5304 /* Info.plist */,
 				88E2C6FF23E228FD00EF5304 /* Preview Content */,
+				80E3E33223E965E000CFFCA5 /* Steps.swift */,
+				80696BF523E9C41C00B6BDF9 /* SupportingFiles */,
 			);
 			path = ExpandableListSwiftUI;
 			sourceTree = "<group>";
@@ -170,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E2C6F823E228F900EF5304 /* AppDelegate.swift in Sources */,
-				8099E3F423E44B4800CCE2D1 /* ExpandableItem.swift in Sources */,
 				8099E3F023E448C500CCE2D1 /* PlaceView.swift in Sources */,
 				88E2C6FA23E228F900EF5304 /* SceneDelegate.swift in Sources */,
 				8043612C23E33ED800967795 /* Place.swift in Sources */,
@@ -315,7 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpandableListSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExpandableListSwiftUI/Info.plist;
+				INFOPLIST_FILE = ExpandableListSwiftUI/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpandableListSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExpandableListSwiftUI/Info.plist;
+				INFOPLIST_FILE = ExpandableListSwiftUI/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

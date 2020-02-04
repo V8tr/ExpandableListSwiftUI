@@ -2,18 +2,19 @@
 //  PlaceView.swift
 //  ExpandableListSwiftUI
 //
-//  Created by Vadym Bulavin on 1/31/20.
+//  Created by Vadim Bulavin on 1/31/20.
 //  Copyright © 2020 Vadim Bulavin. All rights reserved.
 //
 
 import SwiftUI
 
 struct PlaceView: View {
-    let place: ExpandableItem<Place>
-            
+    let place: Place
+    let isExpanded: Bool
+    
     var body: some View {
         HStack {
-            Text(place.name)
+            content
             Spacer()
         }
         .contentShape(Rectangle())
@@ -23,7 +24,7 @@ struct PlaceView: View {
         VStack(alignment: .leading) {
             Text(place.name).font(.headline)
             
-            if place.isExpanded {
+            if isExpanded {
                 VStack(alignment: .leading) {
                     Text(place.country)
                     Text(place.city)

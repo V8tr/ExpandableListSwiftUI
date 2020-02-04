@@ -8,25 +8,9 @@
 
 import SwiftUI
 
-// Search for places https://www.hackingwithswift.com/example-code/location/how-to-look-up-a-location-with-mklocalsearchrequest
-// Place model https://developer.apple.com/documentation/mapkit/mkmapitem
-
-struct ListRowModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        Group {
-            content
-            Divider()
-        }.offset(x: 20)
-    }
-}
-
 struct PlacesListView: View {
-    @State private var selection: Set<Place> = []
     let places: [Place]
-    
-    private var items: [ExpandableItem<Place>] {
-        places.map { ExpandableItem(item: $0, isExpanded: selection.contains($0)) }
-    }
+    @State private var selection: Set<Place> = []
     
     var body: some View {
         scrollForEach
@@ -34,19 +18,19 @@ struct PlacesListView: View {
     }
     
     var list: some View {
-        List(items) { place in
-            PlaceView(place: place)
-                .onTapGesture { self.selectDeselect(place.item) }
+        List(places) { place in
+            PlaceView(place: place, isExpanded: self.selection.contains(place))
+                .onTapGesture { self.selectDeselect(place) }
                 .animation(.linear(duration: 0.3))
         }
     }
     
     var scrollForEach: some View {
         ScrollView {
-            ForEach(items) { place in
-                PlaceView(place: place)
+            ForEach(places) { place in
+                PlaceView(place: place, isExpanded: self.selection.contains(place))
                     .modifier(ListRowModifier())
-                    .onTapGesture { self.selectDeselect(place.item) }
+                    .onTapGesture { self.selectDeselect(place) }
                     .animation(.linear(duration: 0.3))
             }
         }
@@ -58,6 +42,15 @@ struct PlacesListView: View {
         } else {
             selection.insert(place)
         }
+    }
+}
+
+struct ListRowModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        Group {
+            content
+            Divider()
+        }.offset(x: 20)
     }
 }
 

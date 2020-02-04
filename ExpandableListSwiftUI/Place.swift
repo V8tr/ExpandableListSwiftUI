@@ -2,7 +2,7 @@
 //  Place.swift
 //  ExpandableListSwiftUI
 //
-//  Created by Vadym Bulavin on 1/30/20.
+//  Created by Vadim Bulavin on 1/30/20.
 //  Copyright © 2020 Vadim Bulavin. All rights reserved.
 //
 
@@ -18,8 +18,6 @@ struct Place: Identifiable, Hashable {
     let phoneNumber: String
     
     static func samples() -> [Place] { (0..<100).map(Place.fixture) }
-    
-    static func threeSamples() -> [Place] { (0..<3).map(Place.fixture) }
     
     private static func fixture(_ id: Int) -> Place {
         Place(
